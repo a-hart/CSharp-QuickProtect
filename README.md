@@ -1,4 +1,4 @@
-CSharp-QuickHash
+CSharp-QuickProtect
 ================
 
 A quick example of how to use the ProtectedData class in windows to store and retrieve strings.
