@@ -36,11 +36,13 @@
             this.EncryptTextBox = new System.Windows.Forms.TextBox();
             this.DecryptTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.EntropyText = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(48, 148);
+            this.button1.Location = new System.Drawing.Point(48, 195);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 21);
             this.button1.TabIndex = 0;
@@ -50,7 +52,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(157, 148);
+            this.button2.Location = new System.Drawing.Point(157, 195);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 21);
             this.button2.TabIndex = 1;
@@ -60,7 +62,7 @@
             // 
             // string2Encrypt
             // 
-            this.string2Encrypt.Location = new System.Drawing.Point(48, 25);
+            this.string2Encrypt.Location = new System.Drawing.Point(48, 72);
             this.string2Encrypt.Name = "string2Encrypt";
             this.string2Encrypt.Size = new System.Drawing.Size(184, 20);
             this.string2Encrypt.TabIndex = 2;
@@ -68,7 +70,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(45, 9);
+            this.label1.Location = new System.Drawing.Point(45, 56);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 13);
             this.label1.TabIndex = 3;
@@ -77,7 +79,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(45, 55);
+            this.label2.Location = new System.Drawing.Point(45, 102);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 13);
             this.label2.TabIndex = 4;
@@ -85,14 +87,14 @@
             // 
             // EncryptTextBox
             // 
-            this.EncryptTextBox.Location = new System.Drawing.Point(48, 71);
+            this.EncryptTextBox.Location = new System.Drawing.Point(48, 118);
             this.EncryptTextBox.Name = "EncryptTextBox";
             this.EncryptTextBox.Size = new System.Drawing.Size(184, 20);
             this.EncryptTextBox.TabIndex = 5;
             // 
             // DecryptTextBox
             // 
-            this.DecryptTextBox.Location = new System.Drawing.Point(48, 111);
+            this.DecryptTextBox.Location = new System.Drawing.Point(48, 158);
             this.DecryptTextBox.Name = "DecryptTextBox";
             this.DecryptTextBox.Size = new System.Drawing.Size(184, 20);
             this.DecryptTextBox.TabIndex = 7;
@@ -100,17 +102,35 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(45, 95);
+            this.label3.Location = new System.Drawing.Point(45, 141);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Decrypted Text:";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(48, 13);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(259, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Add Entropy: (Type in random letters and/or numbers)";
+            // 
+            // EntropyText
+            // 
+            this.EntropyText.Location = new System.Drawing.Point(48, 30);
+            this.EntropyText.Name = "EntropyText";
+            this.EntropyText.Size = new System.Drawing.Size(184, 20);
+            this.EntropyText.TabIndex = 9;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(292, 181);
+            this.ClientSize = new System.Drawing.Size(326, 230);
+            this.Controls.Add(this.EntropyText);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.DecryptTextBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.EncryptTextBox);
@@ -136,6 +156,8 @@
         private System.Windows.Forms.TextBox EncryptTextBox;
         private System.Windows.Forms.TextBox DecryptTextBox;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox EntropyText;
     }
 }
 

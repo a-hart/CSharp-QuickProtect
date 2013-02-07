@@ -12,9 +12,12 @@ namespace PasswordHashTest
 {
     public partial class Form1 : Form
     {
-        static byte[] s_extraEntropy = { 9, 8, 7, 6, 5, 4, 3 };
+        static byte[] defaultEntropy = { 1, 2, 3, 4, 5 };
+        byte[] protectedPassword;
+        byte[] passwordPlain;
+        byte[] extraEntropy;
+        bool bCustomEntropy = false;
 
-        byte[] protectedPassword; 
         public Form1()
         {
             InitializeComponent();
@@ -23,7 +26,17 @@ namespace PasswordHashTest
         private void button1_Click(object sender, EventArgs e)
         {
             byte[] bytes = Encoding.Unicode.GetBytes(string2Encrypt.Text);
-            protectedPassword = ProtectedData.Protect(bytes, s_extraEntropy, DataProtectionScope.CurrentUser);
+            if (EntropyText.Text != String.Empty)
+            {
+                extraEntropy = Encoding.Unicode.GetBytes(EntropyText.Text);
+                protectedPassword = ProtectedData.Protect(bytes, extraEntropy, DataProtectionScope.CurrentUser);
+                bCustomEntropy = true;
+            }
+            else
+            {
+                protectedPassword = ProtectedData.Protect(bytes, defaultEntropy, DataProtectionScope.CurrentUser);
+            }
+
             EncryptTextBox.Text = Convert.ToBase64String(protectedPassword);
           
         }
@@ -31,8 +44,15 @@ namespace PasswordHashTest
         private void button2_Click(object sender, EventArgs e)
         {
             byte[] bytes = Convert.FromBase64String(EncryptTextBox.Text);
-            byte[] password = ProtectedData.Unprotect(bytes, s_extraEntropy, DataProtectionScope.CurrentUser);
-            DecryptTextBox.Text = Encoding.Unicode.GetString(password);
+            if (bCustomEntropy)
+            {
+                passwordPlain = ProtectedData.Unprotect(bytes, extraEntropy, DataProtectionScope.CurrentUser);
+            }
+            else
+            {
+                passwordPlain = ProtectedData.Unprotect(bytes, defaultEntropy, DataProtectionScope.CurrentUser);
+            }
+            DecryptTextBox.Text = Encoding.Unicode.GetString(passwordPlain);
         }
 
 
